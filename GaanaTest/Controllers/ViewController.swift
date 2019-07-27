@@ -72,7 +72,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.cvCollection.reloadData()
             return cell
         } else if indexPath.section == 3 {
-            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "FourthSectionTableViewCell") as? FourthSectionTableViewCell else { return UITableViewCell() }
+            cell.trackModel = modelData?.sections[indexPath.section].tracks ?? []
+            cell.cvCollection.reloadData()
+            return cell
         } else if indexPath.section == 4 {
             
         }
@@ -87,12 +90,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 2 {
             return 212
         } else if indexPath.section == 3 {
-            
+            return 156
         } else if indexPath.section == 4 {
             
         }
         return UITableView.automaticDimension
     }
-    
-
 }
